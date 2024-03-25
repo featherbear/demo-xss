@@ -1,5 +1,4 @@
 <script>
-  import BugHeader from "../../components/BugHeader.svelte";
   import Result from "./Result.svelte";
 
   let query;
@@ -20,8 +19,6 @@
     }
   });
 </script>
-
-<BugHeader />
 
 <Result {query} />
 

@@ -1,6 +1,5 @@
 <script>
   import { onMount } from "svelte";
-  import BugHeader from "../../components/BugHeader.svelte";
   let posts = [];
   let updateFn = async () => {
     posts = await fetch("/stored/storage").then((r) => r.json());
@@ -30,16 +29,20 @@
         formData = "";
       });
   }
+
+  function execScript(elem) {
+  [...elem.querySelectorAll('script')].forEach(elem => {
+    eval(elem.innerText)
+  })
+ }
 </script>
 
 <div>
-  <BugHeader />
-
   <h1>Posts</h1>
 
   <ul>
     {#each posts as post}
-      <li>
+      <li use:execScript>
         {@html post["text"]}
       </li>
     {/each}

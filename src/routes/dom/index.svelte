@@ -2,12 +2,9 @@
   let specifiers = ["innerHTML", "innerText", "textContent"];
   import CodeBlock from "../../components/CodeBlock.svelte";
   import { html as beautify } from "js-beautify";
-  import BugHeader from "../../components/BugHeader.svelte";
 </script>
 
 <div>
-  <BugHeader />
-
   {#each specifiers as specifier}
     <form
       entry
